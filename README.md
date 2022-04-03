@@ -1,4 +1,4 @@
-# Lsky-Pro Docker镜像
+# LskyPro Docker镜像
 
 每天自动拉取最新代码构建Docker镜像
 
@@ -10,7 +10,7 @@ docker run -d \
     --restart unless-stopped \
     -p 9080:80 \
     -v /path-to-data:/var/www/html \
-    halcyonazure/lsky-pro-docker:latest
+    coldpig/LskyPro-Docker:latest
 ```
 
 ## 反代HTTPS
@@ -31,7 +31,7 @@ docker exec -it lskypro sed -i '32 a \\\Illuminate\\Support\\Facades\\URL::force
 version: '3'
 services:
   lskypro:
-    image: halcyonazure/lsky-pro-docker:latest
+    image: coldpig/LskyPro-Docker:latest
     restart: unless-stopped
     hostname: lskypro
     container_name: lskypro
