@@ -41,5 +41,5 @@ jobs:
       
       - name: Build and push
         run: |
-          docker build -t coldpig/LskyPro-Docker:latest .
-          docker push coldpig/LskyPro-Docker:latest
+          docker build -t coldpig/lskypro-docker:latest .
+          docker push coldpig/lskypro-docker:latest
