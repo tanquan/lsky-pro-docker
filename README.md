@@ -33,7 +33,7 @@ version: '3'
 services:
   lskypro:
     image: coldpig/lskypro-docker:latest
-    restart: unless-stopped
+    restart: always
     hostname: lskypro
     container_name: lskypro
     volumes:
