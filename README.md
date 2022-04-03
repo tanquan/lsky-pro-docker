@@ -28,41 +28,45 @@ docker exec -it lskypro sed -i '32 a \\\Illuminate\\Support\\Facades\\URL::force
 使用`MySQL`来作为数据库的话可以参考原项目 [#256](https://github.com/lsky-org/lsky-pro/issues/256) 来创建`docker-compose.yaml`，参考内容如下：
 
 ```yaml
+---
 version: '3'
 services:
   lskypro:
-    image: coldpig/LskyPro-Docker:latest
+    image: coldpig/lskypro-docker:latest
     restart: unless-stopped
     hostname: lskypro
     container_name: lskypro
     volumes:
-      - /data/lsky:/var/www/html
+      - /data/lsky_pro/html:/var/www/html
     ports:
       - "9080:80"
-    networks:
-      - lsky-net
 
-  mysql-lsky:
-    image: mysql:5.7.22
-    restart: unless-stopped
+  lskypro_mysql:
+    image: mysql:5.7.37
+    restart: always
     # 主机名，可作为子网域名填入安装引导当中
-    hostname: mysql-lsky
+    hostname: lskypro_mysql
     # 容器名称
-    container_name: mysql-lsky
+    container_name: lskypro_mysql
     # 修改加密规则
     command: --default-authentication-plugin=mysql_native_password
     volumes:
-      - /data/lsky/mysql/data:/var/lib/mysql
-      - /data/lsky/mysql/conf:/etc/mysql
-      - /data/lsky/mysql/log:/var/log/mysql
+      - /data/lsky_pro/mysql/data:/var/lib/mysql
+      - /data/lsky_pro/mysql/conf:/etc/mysql
+      - /data/lsky_pro/mysql/log:/var/log/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: lAsWjb6rzSzENUYg # 数据库root用户密码
-      MYSQL_DATABASE: lsky-data # 给lsky-pro用的数据库名称
-    networks:
-      - lsky-net
+      MYSQL_ROOT_PASSWORD: MyPassword # 数据库root用户密码
+      MYSQL_DATABASE: lskypro # 给lsky-pro用的数据库名称
 
-networks:
-  lsky-net:
+  lskypro_adminer:
+    image: adminer:latest
+    container_name: lskypro_adminer
+    hostname: lskypro_adminer
+    restart: always
+    ports:
+      - 18080:8080
+    environment:
+      - ADMINER_DEFAULT_SERVER=lskypro_mysql
 ```
 
 原项目：[☁️兰空图床(Lsky Pro) - Your photo album on the cloud.](https://github.com/lsky-org/lsky-pro)
