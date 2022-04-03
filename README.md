@@ -10,7 +10,7 @@ docker run -d \
     --restart unless-stopped \
     -p 9080:80 \
     -v /path-to-data:/var/www/html \
-    coldpig/LskyPro-Docker:latest
+    coldpig/lskypro-docker:latest
 ```
 
 ## 反代HTTPS
