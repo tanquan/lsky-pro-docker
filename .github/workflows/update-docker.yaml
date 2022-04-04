@@ -3,8 +3,7 @@ name: Build and push Docker images
 on:
   workflow_dispatch:
   schedule:
-  # China Standard Time: 17:35
-  - cron: '35 9 * * *'
+  - cron: '45 9 * * *'
 
 env:
   TZ: Asia/Shanghai 
