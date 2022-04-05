@@ -33,7 +33,7 @@ version: '3'
 services:
   lskypro:
     image: coldpig/lskypro-docker:latest
-    restart: always
+    restart: unless-stopped
     hostname: lskypro
     container_name: lskypro
     volumes:
@@ -43,7 +43,7 @@ services:
 
   lskypro_mysql:
     image: mysql:5.7.37
-    restart: always
+    restart: unless-stopped
     # 主机名，可作为子网域名填入安装引导当中
     hostname: lskypro_mysql
     # 容器名称
@@ -62,7 +62,7 @@ services:
     image: adminer:latest
     container_name: lskypro_adminer
     hostname: lskypro_adminer
-    restart: always
+    restart: unless-stopped
     ports:
       - 18080:8080
     environment:
