@@ -67,6 +67,18 @@ services:
       - 18080:8080
     environment:
       - ADMINER_DEFAULT_SERVER=lskypro_mysql
+
+  lskypro_redis:
+    image: redis:latest
+    container_name: lskypro_redis
+    hostname: lskypro_redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - /data/lsky_pro/redis/redis.conf:/etc/redis/redis.conf 
+      - /data/lsky_pro/redis/data:/data
+    command: redis-server /etc/redis/redis.conf
 ```
 
 原项目：[☁️兰空图床(Lsky Pro) - Your photo album on the cloud.](https://github.com/lsky-org/lsky-pro)
