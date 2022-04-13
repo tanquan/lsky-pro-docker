@@ -25,16 +25,19 @@ docker exec -it lskypro sed -i '32 a \\\Illuminate\\Support\\Facades\\URL::force
 
 ## Docker-Compose部署参考
 
-使用`MySQL`来作为数据库的话可以参考原项目 [#256](https://github.com/lsky-org/lsky-pro/issues/256) 来创建`docker-compose.yaml`，参考内容如下：
+使用 `MySQL` 来作为数据库的话可以参考原项目 [#256](https://github.com/lsky-org/lsky-pro/issues/256) 来创建 `docker-compose.yaml` ，参考内容如下：
 
-说明：增加 adminer 和 redis: 
-1. adminer： 用于方便管理 MySQL 数据库。
+> 说明：增加 adminer 和 redis: 
+>
+> 1. adminer： 用于方便管理 MySQL 数据库。
+>
+> 2. redis： 可用于配置缓存。 
+>
+>    [配置缓存的方法](https://docs.lsky.pro/docs/v2/advanced/cache.html#%E4%BD%BF%E7%94%A8-redis)
+>
+>    [redis.conf 简单的单实例配置文件](https://github.com/cold-pig/LskyPro-Docker/blob/master/redis.conf)
 
-2. redis： 可用于配置缓存。 
 
-   [配置缓存的方法](https://docs.lsky.pro/docs/v2/advanced/cache.html#%E4%BD%BF%E7%94%A8-redis)
-
-   [redis.conf 简单的单实例配置文件](https://github.com/cold-pig/LskyPro-Docker/blob/master/redis.conf)
 
 ```yaml
 ---
@@ -93,3 +96,4 @@ services:
 原项目：[☁️兰空图床(Lsky Pro) - Your photo album on the cloud.](https://github.com/lsky-org/lsky-pro)
 
 根据 [HalcyonAzure/lsky-pro-docker](https://github.com/HalcyonAzure/lsky-pro-docker) 学习使用 Actions。 
+
