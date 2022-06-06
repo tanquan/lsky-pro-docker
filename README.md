@@ -1,4 +1,4 @@
-# LskyPro Docker镜像
+# LskyPro Docker 镜像
 
 每天自动拉取最新代码构建Docker镜像
 
@@ -13,7 +13,7 @@ docker run -d \
     coldpig/lskypro-docker:latest
 ```
 
-## 反代HTTPS
+## 反代 HTTPS
 
 如果使用了Nginx反代后，如果出现无法加载图片的问题，可以根据原项目 [#317](https://github.com/lsky-org/lsky-pro/issues/317) 执行以下指令来手动修改容器内`AppServiceProvider.php`文件对于HTTPS的支持
 
@@ -23,7 +23,7 @@ docker run -d \
 docker exec -it lskypro sed -i '32 a \\\Illuminate\\Support\\Facades\\URL::forceScheme('"'"'https'"'"');' /var/www/html/app/Providers/AppServiceProvider.php
 ```
 
-## Docker-Compose部署参考
+## Docker-Compose 部署参考
 
 使用 `MySQL` 来作为数据库的话可以参考原项目 [#256](https://github.com/lsky-org/lsky-pro/issues/256) 来创建 `docker-compose.yaml` ，参考内容如下：
 
