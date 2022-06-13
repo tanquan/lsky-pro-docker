@@ -2,7 +2,7 @@
 
 [![Build and push Docker images](https://github.com/cold-pig/LskyPro-Docker/actions/workflows/update-docker.yaml/badge.svg)](https://github.com/cold-pig/LskyPro-Docker/actions/workflows/update-docker.yaml)
 
-每天自动拉取最新代码构建Docker镜像
+每天自动拉取最新代码构建 Docker 镜像。
 
 ## 使用方法
 
@@ -17,9 +17,9 @@ docker run -d \
 
 ## 反代 HTTPS
 
-如果使用了Nginx反代后，如果出现无法加载图片的问题，可以根据原项目 [#317](https://github.com/lsky-org/lsky-pro/issues/317) 执行以下指令来手动修改容器内`AppServiceProvider.php`文件对于HTTPS的支持
+如果使用了 Nginx 反代后，如果出现无法加载图片的问题，可以根据原项目 [#317](https://github.com/lsky-org/lsky-pro/issues/317) 执行以下指令来手动修改容器内`AppServiceProvider.php`文件对于 HTTPS 的支持。
 
-***Tips：将lskypro改为自己容器的名字***
+***Tips：将 lskypro 改为自己容器的名字***
 
 ```bash
 docker exec -it lskypro sed -i '32 a \\\Illuminate\\Support\\Facades\\URL::forceScheme('"'"'https'"'"');' /var/www/html/app/Providers/AppServiceProvider.php
@@ -95,7 +95,7 @@ services:
     command: redis-server /etc/redis/redis.conf
 ```
 
-原项目：[☁️兰空图床(Lsky Pro) - Your photo album on the cloud.](https://github.com/lsky-org/lsky-pro)
+原项目：[☁️兰空图床 (Lsky Pro) - Your photo album on the cloud.](https://github.com/lsky-org/lsky-pro)
 
 根据 [HalcyonAzure/lsky-pro-docker](https://github.com/HalcyonAzure/lsky-pro-docker) 学习使用 Actions。 
 
