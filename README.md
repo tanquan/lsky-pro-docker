@@ -6,6 +6,8 @@
 
 ## 使用方法
 
+### 方法1: docker 运行容器
+
 ```docker
 docker run -d \
     --name lskypro \
@@ -15,17 +17,7 @@ docker run -d \
     coldpig/lskypro-docker:latest
 ```
 
-## 反代 HTTPS
-
-如果使用了 Nginx 反代后，如果出现无法加载图片的问题，可以根据原项目 [#317](https://github.com/lsky-org/lsky-pro/issues/317) 执行以下指令来手动修改容器内`AppServiceProvider.php`文件对于 HTTPS 的支持。
-
-***Tips：将 lskypro 改为自己容器的名字***
-
-```bash
-docker exec -it lskypro sed -i '32 a \\\Illuminate\\Support\\Facades\\URL::forceScheme('"'"'https'"'"');' /var/www/html/app/Providers/AppServiceProvider.php
-```
-
-## Docker-Compose 部署参考
+### 方法2: Docker-Compose 部署参考
 
 使用 `MySQL` 来作为数据库的话可以参考原项目 [#256](https://github.com/lsky-org/lsky-pro/issues/256) 来创建 `docker-compose.yaml` ，参考内容如下：
 
@@ -95,6 +87,19 @@ services:
     command: redis-server /etc/redis/redis.conf
 ```
 
+
+## 反代 HTTPS
+
+如果使用了 Nginx 反代后，如果出现无法加载图片的问题，可以根据原项目 [#317](https://github.com/lsky-org/lsky-pro/issues/317) 执行以下指令来手动修改容器内`AppServiceProvider.php`文件对于 HTTPS 的支持。
+
+***Tips：将 lskypro 改为自己容器的名字***
+
+```bash
+docker exec -it lskypro sed -i '32 a \\\Illuminate\\Support\\Facades\\URL::forceScheme('"'"'https'"'"');' /var/www/html/app/Providers/AppServiceProvider.php
+```
+
+
+------
 原项目：[☁️兰空图床 (Lsky Pro) - Your photo album on the cloud.](https://github.com/lsky-org/lsky-pro)
 
 根据 [HalcyonAzure/lsky-pro-docker](https://github.com/HalcyonAzure/lsky-pro-docker) 学习使用 Actions。 
