@@ -50,9 +50,7 @@ services:
   lskypro_mysql:
     image: mysql:5.7.37
     restart: unless-stopped
-    # 主机名，可作为子网域名填入安装引导当中
     hostname: lskypro_mysql
-    # 容器名称
     container_name: lskypro_mysql
     # 修改加密规则
     command: --default-authentication-plugin=mysql_native_password
@@ -61,8 +59,8 @@ services:
       - /data/lsky_pro/mysql/conf:/etc/mysql
       - /data/lsky_pro/mysql/log:/var/log/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: MyPassword # 数据库root用户密码
-      MYSQL_DATABASE: lskypro # 给lsky-pro用的数据库名称
+      MYSQL_ROOT_PASSWORD: MyPassword  # 数据库root用户密码（请自行修改）
+      MYSQL_DATABASE: lskypro  # 给 lsky-pro 用的数据库名称
 
   lskypro_adminer:
     image: adminer:latest
