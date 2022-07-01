@@ -59,7 +59,7 @@ services:
       - /data/lsky_pro/mysql/conf:/etc/mysql
       - /data/lsky_pro/mysql/log:/var/log/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: MyPassword  # 数据库root用户密码（请自行修改）
+      MYSQL_ROOT_PASSWORD: MyPassword  # 数据库root用户密码（请自行修改密码）
       MYSQL_DATABASE: lskypro  # 给 lsky-pro 用的数据库名称
 
   lskypro_adminer:
