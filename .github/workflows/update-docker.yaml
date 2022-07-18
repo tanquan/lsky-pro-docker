@@ -40,7 +40,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       
-      - name: Build and push
+      - name: Build and Push
         # run: |
           # docker build -t coldpig/lskypro-docker:latest .
           # docker push coldpig/lskypro-docker:latest
@@ -58,7 +58,7 @@ jobs:
           short-description: ☁️ 兰空图床 (Lsky Pro) - Your photo album on the cloud. 新版 ${{ env.LSKYPRO_VER }}，第三方维护的 Docker 镜像，会每天拉取一次源仓库源码构建镜像。
           readme-filepath: ./README.md
 
-      - name: Create Version latest
+      - name: Create Version Latest
         run: |
           docker buildx imagetools create -t coldpig/lskypro-docker:latest \
             coldpig/lskypro-docker:v_${{ env.LSKYPRO_VER }}
