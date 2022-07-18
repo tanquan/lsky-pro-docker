@@ -52,8 +52,8 @@ jobs:
       - name: Docker Hub Description
         uses: peter-evans/dockerhub-description@v2
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
           repository: coldpig/lskypro-docker
           short-description: ☁️ 兰空图床 (Lsky Pro) - Your photo album on the cloud. 新版 ${{ env.LSKYPRO_VER }}，第三方维护的 Docker 镜像，会每天拉取一次源仓库源码构建镜像。
           readme-filepath: ./README.md
