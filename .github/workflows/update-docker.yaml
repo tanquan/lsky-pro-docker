@@ -41,22 +41,20 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       
       - name: Build and push
+        # run: |
+          # docker build -t coldpig/lskypro-docker:latest .
+          # docker push coldpig/lskypro-docker:latest
         uses: docker/build-push-action@v2
         with:
           push: true
           tags: coldpig/lskypro-docker:v_${{ env.LSKYPRO_VER }}
 
-      - name: create version latest
+      - name: Create Version latest
         run: |
           docker buildx imagetools create -t coldpig/lskypro-docker:latest \
             coldpig/lskypro-docker:v_${{ env.LSKYPRO_VER }}
       
-        # run: |
-          # docker build -t coldpig/lskypro-docker:latest .
-          # docker push coldpig/lskypro-docker:latest
-          
-          # docker buildx imagetools create -t coldpig/lskypro-docker:latest \
-            # coldpig/lskypro-docker:v_${{ env.LSKYPRO_VER }}
+
         
         
         
