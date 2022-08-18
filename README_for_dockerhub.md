@@ -8,7 +8,7 @@
 
 | 名称                   | 版本    | 说明  |
 | ---------------------- | ------- | ----- |
-| coldpig/lskypro-docker | v_2.0.4 | amd64 |
+| coldpig/lskypro-docker | v_2.1 | amd64 |
 
 ## 使用方法
 
