@@ -7,7 +7,7 @@ on:
 
 env:
   TZ: Asia/Shanghai 
-  LSKYPRO_VER: 2.0.4
+  LSKYPRO_VER: 2.1
 
 jobs:
   docker:
