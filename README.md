@@ -14,7 +14,7 @@
 
 ## 使用方法
 
-### 方法1: docker 运行容器
+### 方法1: docker cli 运行容器
 
 ```docker
 docker run -d \
@@ -25,7 +25,7 @@ docker run -d \
     coldpig/lskypro-docker:latest
 ```
 
-### 方法2: Docker-Compose 部署参考
+### 方法2: docker-compose 部署
 
 使用 `MySQL` 来作为数据库的话可以参考原项目 [#256](https://github.com/lsky-org/lsky-pro/issues/256) 来创建 `docker-compose.yaml` ，参考内容如下：
 
