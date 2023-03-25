@@ -41,25 +41,25 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       
       - name: Build and Push
-        # run: |
-        #   docker build -t coldpig/lskypro-docker:latest .
-        #   docker push coldpig/lskypro-docker:latest
-        uses: docker/build-push-action@v2
-        with:
-          push: true
-          tags: coldpig/lskypro-docker:v_${{ env.LSKYPRO_VER }}
-
-      - name: Docker Hub Description
-        uses: peter-evans/dockerhub-description@v3
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-          repository: coldpig/lskypro-docker
-          short-description: ☁️ 兰空图床 (Lsky Pro) - ☁ Your photo album on the cloud.  新版 ${{ env.LSKYPRO_VER }}，第三方维护的 Docker 镜像，会每天拉取一次源仓库源码构建镜像。
-          readme-filepath: ./README_for_dockerhub.md
-
-      - name: Create Version Latest
         run: |
-          docker buildx imagetools create -t coldpig/lskypro-docker:latest \
-            coldpig/lskypro-docker:v_${{ env.LSKYPRO_VER }}
+          docker build -t coldpig/lskypro-docker:latest .
+          docker push coldpig/lskypro-docker:latest
+        # uses: docker/build-push-action@v2
+        # with:
+        #   push: true
+        #   tags: coldpig/lskypro-docker:v_${{ env.LSKYPRO_VER }}
+
+      # - name: Docker Hub Description
+      #   uses: peter-evans/dockerhub-description@v2
+      #   with:
+      #     username: ${{ secrets.DOCKERHUB_USERNAME }}
+      #     password: ${{ secrets.DOCKERHUB_TOKEN }}
+      #     repository: coldpig/lskypro-docker
+      #     short-description: ☁️ 兰空图床 (Lsky Pro) - ☁ Your photo album on the cloud.  新版 ${{ env.LSKYPRO_VER }}，第三方维护的 Docker 镜像，会每天拉取一次源仓库源码构建镜像。
+      #     readme-filepath: ./README_for_dockerhub.md
+
+      # - name: Create Version Latest
+      #   run: |
+      #     docker buildx imagetools create -t coldpig/lskypro-docker:latest \
+      #       coldpig/lskypro-docker:v_${{ env.LSKYPRO_VER }}
       
