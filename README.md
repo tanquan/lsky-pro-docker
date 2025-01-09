@@ -35,7 +35,7 @@ docker run -d \
 >
 > 2. redis： 可用于配置缓存。 
 >
->    [配置缓存的方法](https://docs.lsky.pro/docs/free/v2/advanced/cache.html#%E4%BD%BF%E7%94%A8-redis)
+>    [配置缓存的方法](https://docs.lsky.pro/archive/free/v2/advanced/cache)
 >
 >    [redis.conf 简单的单实例配置文件](https://github.com/cold-pig/LskyPro-Docker/blob/master/redis.conf)
 
