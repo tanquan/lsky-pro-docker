@@ -6,10 +6,13 @@ RUN apt update && apt install imagemagick libmagickwand-dev -y \
     && docker-php-ext-install bcmath \
     && docker-php-ext-install pdo_mysql \
     && docker-php-ext-enable imagick 
+RUN pecl install redis \
+    && docker-php-ext-enable redis
 RUN { \
     echo 'post_max_size = 100M;';\
     echo 'upload_max_filesize = 100M;';\
     echo 'max_execution_time = 600S;';\
+    echo 'extension=redis.so';\
     } > /usr/local/etc/php/conf.d/docker-php-upload.ini; 
 RUN { \
     echo 'opcache.enable=1'; \
